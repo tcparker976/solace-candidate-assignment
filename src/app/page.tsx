@@ -31,7 +31,10 @@ export default function Home() {
     fetchAdvocates();
   }, []);
 
+<<<<<<< HEAD
   // Memoized filtered advocates - only recalculates when advocates or searchTerm changes
+=======
+>>>>>>> 654950cc8dd845d021a0674694533c9fd8c019a8
   const filteredAdvocates = useMemo(() => {
     if (!searchTerm.trim()) {
       return advocates;
@@ -39,7 +42,10 @@ export default function Home() {
 
     const lowerSearchTerm = searchTerm.toLowerCase();
     return advocates.filter((advocate) => {
+<<<<<<< HEAD
       console.log('cHECK HERE!!', `${advocate.yearsOfExperience.toString().includes(searchTerm)} years`);
+=======
+>>>>>>> 654950cc8dd845d021a0674694533c9fd8c019a8
       return (
         advocate.firstName.toLowerCase().includes(lowerSearchTerm) ||
         advocate.lastName.toLowerCase().includes(lowerSearchTerm) ||
@@ -55,7 +61,10 @@ export default function Home() {
     });
   }, [advocates, searchTerm]);
 
+<<<<<<< HEAD
   // Memoized event handlers to prevent unnecessary re-renders
+=======
+>>>>>>> 654950cc8dd845d021a0674694533c9fd8c019a8
   const onChangeSearch = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const newSearchTerm = e.target.value;
     setSearchTerm(newSearchTerm);
