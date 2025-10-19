@@ -31,7 +31,6 @@ export default function Home() {
     fetchAdvocates();
   }, []);
 
-  // Memoized filtered advocates - only recalculates when advocates or searchTerm changes
   const filteredAdvocates = useMemo(() => {
     if (!searchTerm.trim()) {
       return advocates;
@@ -39,7 +38,6 @@ export default function Home() {
 
     const lowerSearchTerm = searchTerm.toLowerCase();
     return advocates.filter((advocate) => {
-      console.log('cHECK HERE!!', `${advocate.yearsOfExperience.toString().includes(searchTerm)} years`);
       return (
         advocate.firstName.toLowerCase().includes(lowerSearchTerm) ||
         advocate.lastName.toLowerCase().includes(lowerSearchTerm) ||
@@ -55,7 +53,6 @@ export default function Home() {
     });
   }, [advocates, searchTerm]);
 
-  // Memoized event handlers to prevent unnecessary re-renders
   const onChangeSearch = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const newSearchTerm = e.target.value;
     setSearchTerm(newSearchTerm);
